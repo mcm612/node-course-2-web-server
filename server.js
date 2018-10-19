@@ -37,20 +37,21 @@ hbs.registerHelper('getCurrentYear',()=> {
 //register a handler for urls
 //the function to run who sends the request
 app.get('/',(req,res)=>{
-    //respond to the request by sending data back
-    //res.send('<h1>hello Express</h1>');
-    res.send({
-        name: 'Michael',
-        likes: [
-            'biking',
-            'Cities',
-        ]
+    res.render('home.hbs',{
+        pageTitle: 'Home Page',
+        welcomeMessage: 'Welcome to my website'
     });
 });
 
 app.get('/about', (req, res)=>{
     res.render('about.hbs', {
       pageTitle: 'About Page'
+    });
+});
+
+app.get('/projects', (req, res)=>{
+    res.render('projects.hbs', {
+      pageTitle: 'Projects'
     });
 });
 
